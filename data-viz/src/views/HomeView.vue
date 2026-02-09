@@ -1,20 +1,30 @@
-<script setup lang="ts">
-  import Greeting from '@/components/Greeting.vue';
-  import { onBeforeRouteUpdate, useRoute } from 'vue-router';
+<script lang="ts">
+import Greeting from '@/components/Greeting.vue';
+import { useRoute } from 'vue-router';
 
-  const route = useRoute()
-  console.log("Params", route.params)
-  let user: string | undefined = route.params.user ? route.params.user as string : "Unknown"
+export default {
+  components: {
+    Greeting
+  },
+  data() {
+    return {greeting: "Unknown"}
+  },
+  created() {
+    const route = useRoute()
+    const user: string | undefined = route.params.user ? route.params.user as string : "Unknown"
 
-  onBeforeRouteUpdate(async (to, from) => {
-    console.log('Update', to, from)
+    fetch(`api/?user=${user}`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.greeting = data.greeting
+      })
 
-    user = await to.params.user as string
-  })
+  }
+}
 </script>
 
 <template>
   <main>
-    <Greeting :user=user />
+    <Greeting :greeting="greeting" />
   </main>
 </template>

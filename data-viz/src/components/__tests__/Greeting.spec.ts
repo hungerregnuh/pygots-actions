@@ -5,7 +5,7 @@ import Greeting from '../Greeting.vue'
 
 describe('Greeting', () => {
   it('renders properly', () => {
-    const wrapper = mount(Greeting, { props: { user: 'TestyMcTestFace' } })
-    expect(wrapper.text()).toContain('TestyMcTestFace')
+    const wrapper = mount(Greeting, { props: { greeting: 'Hello TestyMcTestFace!' } })
+    expect(wrapper.text()).toContain('Hello TestyMcTestFace!')
   })
 })

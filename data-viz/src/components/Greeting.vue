@@ -1,11 +1,11 @@
 <script setup lang="ts">
   defineProps<{
-    user: string | null | undefined
+    greeting: string | null | undefined
   }>()
 </script>
 
 <template>
   <div>
-    Hello! {{ user }}
+    {{ greeting }}
   </div>
 </template>
