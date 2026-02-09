@@ -40,3 +40,7 @@ __screenshots__/
 
 test-results/
 playwright-report/
+
+# Nuxt
+auto-imports.d.ts
+components.d.ts
