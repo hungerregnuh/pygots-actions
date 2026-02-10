@@ -27,6 +27,7 @@ jobs:
         run: bun run vitest -w false
       - name: Build
         run: bun run build
+      - run: pwd; ls
       - name: Store build artifacts
         uses: actions/upload-artifact@v6
         with:
