@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - data-viz
+      - $GITHUB_WORKSPACE/data-viz
 jobs:
   build:
     name: Test and Build Vue App
