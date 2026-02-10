@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 5
     strategy:
       matrix:
-        bun-version: [canary, 2.0.x, latest]
+        bun-version: [canary, 2.0.2, latest]
     steps:
       - uses: actions/checkout@v6
       - name: Use bun ${{ matrix.bun-version }}
