@@ -2,7 +2,6 @@ name: Build Vue App
 on:
   push:
     branches: [main]
-    paths: ['$GITHUB_WORKSPACE/data-viz/**']
 jobs:
   build:
     name: Test and Build Vue App
