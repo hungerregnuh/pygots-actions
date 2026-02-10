@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: vue-app
-          path: dist
+          path: 'data-viz/dist'
