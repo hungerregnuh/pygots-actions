@@ -2,11 +2,11 @@
 import { RouterView } from 'vue-router'
 </script>
 
+<!-- Test workflow -->
 <template>
   <UApp>
     <RouterView />
   </UApp>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
