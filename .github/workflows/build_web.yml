@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: bun run build
       - name: Store build artifacts
-        run: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v6
         with:
           name: vue-app
           path: dist
