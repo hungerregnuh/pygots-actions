@@ -10,11 +10,11 @@ jobs:
 
     defaults:
       run:
-        working-directory: data-viz
+        working-directory: 'data-viz'
     timeout-minutes: 5
     strategy:
       matrix:
-        bun-version: [canary, 2.0.2, latest]
+        bun-version: ['canary', 'latest', '1.2.x']
     steps:
       - uses: actions/checkout@v6
       - name: Use bun ${{ matrix.bun-version }}
