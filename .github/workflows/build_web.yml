@@ -2,7 +2,7 @@ name: Build Vue App
 on:
   push:
     branches: [main]
-    paths: ['data-viz/**']
+    paths: ['data-viz/**', '.github/workflows/build_web.yml']
 jobs:
   build:
     name: Test and Build Vue App
@@ -33,3 +33,4 @@ jobs:
         with:
           name: vue-app
           path: 'data-viz/dist'
+          overwrite: true
