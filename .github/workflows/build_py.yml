@@ -20,18 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: 'Setup python'
-        uses: actions/setup-python@v6
+      - name: 'Install uv, python and project deps'
+        uses: hungerregnuh/gh-actions/python/install_uv_w_deps@main
         with:
-          python-version-file: '${{ env.WORK_DIR }}/.python-version'
-
-      - name: Install Uv
-        uses: astral-sh/setup-uv@v7
-        with:
-          version: '0.9.28'
-
-      - name: Install dependencies
-        run: uv sync --locked --all-extras --dev
+          uv-version: '0.9.28'
+          workdir: ${{ env.WORK_DIR }}
 
       - name: Unit tests
         run: uv run pytest
