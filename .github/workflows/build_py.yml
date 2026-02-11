@@ -4,15 +4,18 @@ on:
     branches: [main]
     paths: ['py_data/**', '.github/workflows/build_py.yml']
 
+env:
+  WORK_DIR: 'py_data'
+
 jobs:
   test:
     name: 'Test Py Data'
     runs-on: 'ubuntu-latest'
+    timeout-minutes: 5
 
     defaults: &work-dir
       run:
-        working-directory: 'py_data'
-    timeout-minutes: 5
+        working-directory: ${{ env.WORK_DIR }}
 
     steps:
       - uses: actions/checkout@v6
@@ -23,7 +26,7 @@ jobs:
       - name: 'Setup python'
         uses: actions/setup-python@v6
         with:
-          python-version-file: 'py_data/.python-version'
+          python-version-file: '${{ env.WORK_DIR }}/.python-version'
 
       - name: Install Uv
         uses: astral-sh/setup-uv@v7
