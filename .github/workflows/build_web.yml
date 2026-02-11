@@ -16,13 +16,7 @@ jobs:
       matrix:
         bun-version: ['canary', 'latest', '1.2.x']
     steps:
-      - uses: actions/checkout@v6
-      - name: Use bun ${{ matrix.bun-version }}
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: ${{ matrix.bun-version }}
-      - name: Install dependencies
-        run: bun install
+      - uses: hungerregnuh/gh-actions/web/install_bun_w_deps@main
       - name: Unit tests
         run: bun run vitest -w false
   build:
