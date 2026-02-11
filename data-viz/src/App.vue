@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 </script>
 
-<!-- Test workflow 4 -->
+<!-- Test workflow 5 -->
 <template>
   <UApp>
     <RouterView />
