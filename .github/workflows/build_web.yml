@@ -16,6 +16,7 @@ jobs:
       matrix:
         bun-version: ['canary', 'latest', '1.2.x']
     steps:
+      - uses: actions/checkout@v6
       - uses: hungerregnuh/gh-actions/.github/actions/web/install_bun_w_deps@main
         with:
           bun-version: ${{ matrix.bun-version }}
