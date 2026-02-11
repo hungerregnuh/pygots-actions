@@ -23,7 +23,7 @@ jobs:
       - name: 'Setup python'
         uses: actions/setup-python@v6
         with:
-          python-version-file: '.python-version'
+          python-version-file: 'py_data/.python-version'
 
       - name: Install Uv
         uses: astral-sh/setup-uv@v7
