@@ -18,6 +18,9 @@ jobs:
     steps:
       - uses: hungerregnuh/gh-actions/.github/actions/web/install_bun_w_deps@main
       - name: Unit tests
+        with:
+          bun-version: ${{ matrix.bun-version }}
+          workdir: 'data-viz'
         run: bun run vitest -w false
   build:
     name: Build and Save artifacts
