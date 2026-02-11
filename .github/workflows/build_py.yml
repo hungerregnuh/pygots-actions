@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - run: pwd
-      - run: ls
+      - run: ls -altrh
 
       - name: 'Setup python'
         uses: actions/setup-python@v6
