@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - run: pwd
+      - run: ls
+
       - name: 'Setup python'
         uses: actions/setup-python@v6
         with:
