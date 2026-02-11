@@ -49,3 +49,26 @@ jobs:
           name: vue-app
           path: 'data-viz/dist'
           overwrite: true
+
+  e2e-tests:
+    name: Playwright E2E Tests
+    needs: 'build'
+    runs-on: ubuntu-latest
+
+    defaults: *work-dir
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: hungerregnuh/gh-actions/web/install_bun_w_deps@main
+        with:
+          bun-version: 'latest'
+          workdir: 'data-viz'
+
+      - name: Install Playwright deps
+        run: bun run playwright install --with-deps --only-shell
+
+      - name: Run e2e tests
+        run: bun run playwright test
+
+# needed for headless install
+# npx playwright install --with-deps --only-shell

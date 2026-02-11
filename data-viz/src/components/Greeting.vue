@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div>
+  <div id="greeting">
     {{ greeting }}
   </div>
 </template>
