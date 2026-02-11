@@ -1,0 +1,34 @@
+name: Build PyData
+on:
+  push:
+    branches: [main]
+    paths: ['py_data/**', '.github/workflows/build_py.yml']
+
+jobs:
+  test:
+    name: 'Test Py Data'
+    runs-on: 'ubuntu-latest'
+
+    defaults: &work-dir
+      run:
+        working-directory: 'py_data'
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: 'Setup python'
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: '.python-version'
+
+      - name: Install Uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: '0.9.28'
+
+      - name: Install dependencies
+        run: uv sync --locked --all-extras --dev
+
+      - name: Unit tests
+        run: uv run pytest

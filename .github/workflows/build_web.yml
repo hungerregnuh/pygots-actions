@@ -15,6 +15,7 @@ jobs:
     strategy:
       matrix:
         bun-version: ['canary', 'latest', '1.2.x']
+
     steps:
       - uses: actions/checkout@v6
       - uses: hungerregnuh/gh-actions/.github/actions/web/install_bun_w_deps@main
@@ -23,6 +24,7 @@ jobs:
           workdir: 'data-viz'
       - name: Unit tests
         run: bun run vitest -w false
+
   build:
     name: Build and Save artifacts
     runs-on: ubuntu-latest
@@ -32,6 +34,7 @@ jobs:
     strategy:
       matrix:
         bun-version: ['latest']
+
     steps: # Need to break this out into an action
       - uses: actions/checkout@v6
       - uses: hungerregnuh/gh-actions/.github/actions/web/install_bun_w_deps@main
